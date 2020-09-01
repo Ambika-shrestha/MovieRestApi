@@ -1,0 +1,85 @@
+package fr.epita.Resources;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
+import fr.epita.DTO.SignUpDTO;
+import fr.epita.dao.SignUpDao;
+import fr.epita.datamodel.SignUp;
+
+@Path("/signup")
+public class SignUpResources {
+    @Inject
+    SignUpDao signupdao;
+	
+	@POST
+	@Path("/createSignUp")
+	@Produces(value = MediaType.APPLICATION_JSON)
+	public Response createExam(@RequestBody SignUpDTO signupdto) {
+		SignUp signup = new SignUp();
+		signup.setName(signupdto.getName());
+		signup.setEmail(signupdto.getEmail());
+		signup.setPassword(signupdto.getPassword());
+		signupdao.create(signup);
+		return Response.ok(signupdto).build();
+	}
+	//
+	@GET
+	@Path("/getSignUpList")
+	@Produces(value = MediaType.APPLICATION_JSON)
+	public Response getSignUpList(@RequestBody SignUpDTO signupdto) {
+		List<SignUp> list = signupdao.getAll();
+		return Response.ok(list).build();
+	}
+	
+	@GET
+	@Path("/loadData/{id}")
+	@Produces(value = MediaType.APPLICATION_JSON)
+	public Response editSignUp(@PathParam("id")Long id) {
+		SignUp signup = new SignUp();
+		SignUpDTO signupdto =new SignUpDTO();
+		signup.setName(signupdto.getName());
+		signup.setEmail(signupdto.getEmail());
+		signup.setPassword(signupdto.getPassword());
+		signupdao.getById(id);
+		System.out.println("load data" + id);
+		System.out.println(signupdao);
+		return Response.ok(signupdao).build();
+	}
+	
+	@DELETE
+	@Path("/deleteSignUp/{id}")
+	@Produces(value = MediaType.APPLICATION_JSON)
+	public Response deleteSignUp(@PathParam("id")Long id) {
+		signupdao.delete(id);
+		Map<String, Long> signupdelete= new HashMap<String, Long>();
+		signupdelete.put("id", id);
+		return Response.ok(signupdelete).build();	
+	}
+	
+	@PUT
+	@Path("/updateSignUp")
+	@Produces(value = MediaType.APPLICATION_JSON)
+	public Response updateSignUp(@RequestBody SignUpDTO signupdto) {
+		SignUp signup = new SignUp();
+		signup.setName(signupdto.getName());
+		signup.setEmail(signupdto.getEmail());
+		signup.setPassword(signupdto.getPassword());
+		signupdao.edit(signup);
+		return Response.ok(signupdto).build();
+	}
+}

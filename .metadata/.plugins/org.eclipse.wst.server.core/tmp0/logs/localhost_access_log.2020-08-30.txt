@@ -1,0 +1,8 @@
+127.0.0.1 - - [30/Aug/2020:13:07:37 +0200] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [30/Aug/2020:13:09:31 +0200] "GET /database-postress-rest/rest/signup/createSignUp HTTP/1.1" 405 725
+0:0:0:0:0:0:0:1 - - [30/Aug/2020:13:09:32 +0200] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [30/Aug/2020:13:09:50 +0200] "GET /database-postress-rest/rest/signup/createSignUp HTTP/1.1" 405 725
+127.0.0.1 - - [30/Aug/2020:13:37:36 +0200] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [30/Aug/2020:13:40:14 +0200] "GET /movies/rest/signup/createSignUp HTTP/1.1" 404 794
+127.0.0.1 - - [30/Aug/2020:22:07:47 +0200] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [30/Aug/2020:22:12:12 +0200] "GET / HTTP/1.1" 404 751

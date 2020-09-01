@@ -1,0 +1,6 @@
+package fr.epita.dao;
+
+public class signUpDao extends GenericDao<signup, >{
+   
+	
+}

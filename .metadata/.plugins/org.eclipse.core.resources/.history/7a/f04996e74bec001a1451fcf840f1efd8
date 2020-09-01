@@ -1,0 +1,5 @@
+package fr.epita.dao;
+
+public class SeenMovie {
+
+}

@@ -1,0 +1,63 @@
+package fr.epita.datamodel;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Movie")
+public class Movie {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@Column(name="title")
+	private String title;
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(Date dateAdded) {
+		this.dateAdded = dateAdded;
+	}
+
+	public String getExternal_id() {
+		return external_id;
+	}
+
+	public void setExternal_id(String external_id) {
+		this.external_id = external_id;
+	}
+
+	@Column(name="dateAdded")
+	private Date dateAdded;
+	
+	@Column(name="external_id")
+	private String external_id;
+
+	public Movie() {
+	}
+
+}

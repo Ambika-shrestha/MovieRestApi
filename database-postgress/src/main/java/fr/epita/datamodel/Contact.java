@@ -1,0 +1,100 @@
+package fr.epita.datamodel;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="Contact")
+public class Contact {
+
+	@Id
+	private Long id;
+	
+	@Column(name="birthdate")
+	private String birthdate;
+	
+	@Column(name="gender")
+	private String gender;
+	
+	@Column(name="email")
+	private String email;
+	
+	@ManyToOne
+	@JoinColumn(name="fk_user")
+	private SignUp user;
+	
+	@Column(name="createdate")
+	private String  createdate;
+	
+	@Column(name="updatedate")
+	private String  updatedate;
+	
+	public Contact() {
+		
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public SignUp getUser() {
+		return user;
+	}
+
+	public void setUser(SignUp user) {
+		this.user = user;
+	}
+
+	public String getCreatedate() {
+		return createdate;
+	}
+
+	public void setCreatedate(String createdate) {
+		this.createdate = createdate;
+	}
+
+	public String getUpdatedate() {
+		return updatedate;
+	}
+
+	public void setUpdatedate(String updatedate) {
+		this.updatedate = updatedate;
+	}
+
+}
